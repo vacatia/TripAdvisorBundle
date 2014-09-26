@@ -1,0 +1,24 @@
+{
+    "name": "vacatia/trip-advisor-bundle",
+    "description": "TripAdvisorBundle by Vacatia.com",
+    "keywords": ["TripAdvisorBundle", "TripAdvisor", "api", "client", "vacatia"],
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name":     "vacatia",
+            "homepage": "http://vacatia.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "symfony/symfony": ">=2.3",
+        "guzzle/guzzle": "3.8.*",
+        "doctrine/doctrine-cache-bundle": "~1.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Vacatia\\TripAdvisorBundle": "src/"
+        }
+    }
+}

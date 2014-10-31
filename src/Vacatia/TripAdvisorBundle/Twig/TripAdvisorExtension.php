@@ -17,6 +17,7 @@ class TripAdvisorExtension extends \Twig_Extension
     {
         return array(
             new \Twig_SimpleFunction('tripadvisor_rating_phrase', array($this, 'getRatingPhrase')),
+            new \Twig_SimpleFunction('tripadvisor_num_reviews', array($this, 'getNumReviews')),
         );
     }
 
@@ -27,6 +28,15 @@ class TripAdvisorExtension extends \Twig_Extension
         $ratingPhrase = $tripAdvisor->getRatingPhrase($rating);
 
         return $ratingPhrase;
+    }
+    
+    public function getNumReviews($resortCode)
+    {
+        $tripAdvisor = $this->container->get('vacatia_trip_advisor.trip_advisor');
+
+        $tAData = $tripAdvisor->getResortData($resortCode);
+
+        return isset($tAData['num_reviews']) ? $tAData['num_reviews'] : null;
     }
 
     public function getName()

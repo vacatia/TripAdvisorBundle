@@ -10,16 +10,18 @@
     </parameters>
 
     <services>
-        <service id="vacatia_trip_advisor.services.client"
-                class="%vacatia_trip_advisor.services.client.class%">
+        <service id="vacatia_trip_advisor.services.client" class="%vacatia_trip_advisor.services.client.class%">
             <argument type="service" id="service_container" />
         </service>
 
-        <service id="vacatia_trip_advisor.trip_advisor" class="%vacatia_trip_advisor.trip_advisor.class%" />
+        <service id="vacatia_trip_advisor.trip_advisor" class="%vacatia_trip_advisor.trip_advisor.class%">
+            <argument type="service" id="vacatia_trip_advisor.services.client"/>
+        </service>
 
         <service id="vacatia_trip_advisor.twig.tripadvisor_extension" class="Vacatia\TripAdvisorBundle\Twig\TripAdvisorExtension">
             <argument type="service" id="service_container" />
             <tag name="twig.extension" />
         </service>
     </services>
+
 </container>
